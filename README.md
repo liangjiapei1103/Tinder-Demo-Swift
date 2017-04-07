@@ -1,6 +1,4 @@
 # Tinder-Demo-Swift
-
-## Starter Project for Photo Map Exercise (Swift)
 ![Image](https://github.com/liangjiapei1103/Tinder-Demo-Swift/blob/master/Lab9_walkthrough.gif)
 
 - Implements draggable card
