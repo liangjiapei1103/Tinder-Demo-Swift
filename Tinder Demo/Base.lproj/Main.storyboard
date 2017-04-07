@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Cards View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CardsViewController" customModule="Tinder_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,126 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav_bar" translatesAutoresizingMaskIntoConstraints="NO" id="lrP-yU-Ise">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="2V4-Bz-Zos"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="action_buttons" translatesAutoresizingMaskIntoConstraints="NO" id="epw-mm-HPO">
+                                <rect key="frame" x="0.0" y="456" width="375" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="8Hb-Lz-a54"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ryan" translatesAutoresizingMaskIntoConstraints="NO" id="eRu-BR-5rI">
+                                <rect key="frame" x="12" y="86" width="351" height="350"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="oDg-Ne-trx"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="uIk-wU-wpT" appends="YES" id="sqr-mk-xAn"/>
+                                    <outletCollection property="gestureRecognizers" destination="ipM-1s-n9h" appends="YES" id="98m-Mn-WdS"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="epw-mm-HPO" secondAttribute="trailing" id="Cwk-Vg-2aG"/>
+                            <constraint firstItem="eRu-BR-5rI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="12" id="JY2-X4-VxC"/>
+                            <constraint firstItem="lrP-yU-Ise" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JvI-UE-5CJ"/>
+                            <constraint firstItem="lrP-yU-Ise" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="OlD-23-IxF"/>
+                            <constraint firstItem="eRu-BR-5rI" firstAttribute="top" secondItem="lrP-yU-Ise" secondAttribute="bottom" constant="20" id="aPa-TJ-Hzj"/>
+                            <constraint firstAttribute="trailing" secondItem="lrP-yU-Ise" secondAttribute="trailing" id="e4l-Cs-i4k"/>
+                            <constraint firstAttribute="trailing" secondItem="eRu-BR-5rI" secondAttribute="trailing" constant="12" id="hGx-Ew-miA"/>
+                            <constraint firstItem="epw-mm-HPO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rsG-e5-0PA"/>
+                            <constraint firstItem="epw-mm-HPO" firstAttribute="top" secondItem="eRu-BR-5rI" secondAttribute="bottom" constant="20" id="vfC-c7-JD4"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cardImageView" destination="eRu-BR-5rI" id="BwQ-Ey-wrU"/>
+                        <segue destination="fKp-60-VZe" kind="presentation" identifier="moreImagesSegue" id="eH7-Za-YCl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="uIk-wU-wpT">
+                    <connections>
+                        <action selector="onDragCard:" destination="BYZ-38-t0r" id="dAH-u8-xwM"/>
+                    </connections>
+                </panGestureRecognizer>
+                <tapGestureRecognizer id="ipM-1s-n9h">
+                    <connections>
+                        <action selector="onTapCard:" destination="BYZ-38-t0r" id="bVZ-BO-BgE"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="34.632683658170919"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="rzB-fD-wYu">
+            <objects>
+                <viewController id="fKp-60-VZe" customClass="ProfileViewController" customModule="Tinder_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bcQ-9D-y1m"/>
+                        <viewControllerLayoutGuide type="bottom" id="3vK-p1-jGM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zvx-bt-V5S">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DE3-HT-jZn">
+                                <rect key="frame" x="0.0" y="86" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="375" id="09j-a7-z6J"/>
+                                </constraints>
+                            </imageView>
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav_bar2" translatesAutoresizingMaskIntoConstraints="NO" id="dWv-nn-Ii4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="m4K-RU-b7A"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Akd-Zx-H5u" appends="YES" id="dRF-hu-ZjD"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dWv-nn-Ii4" firstAttribute="top" secondItem="zvx-bt-V5S" secondAttribute="top" id="8co-RU-DbD"/>
+                            <constraint firstItem="DE3-HT-jZn" firstAttribute="leading" secondItem="zvx-bt-V5S" secondAttribute="leading" id="gYG-0w-q8e"/>
+                            <constraint firstItem="dWv-nn-Ii4" firstAttribute="leading" secondItem="zvx-bt-V5S" secondAttribute="leading" id="oLe-as-thZ"/>
+                            <constraint firstAttribute="trailing" secondItem="dWv-nn-Ii4" secondAttribute="trailing" id="r4A-FC-qvb"/>
+                            <constraint firstItem="DE3-HT-jZn" firstAttribute="top" secondItem="dWv-nn-Ii4" secondAttribute="bottom" constant="20" id="tth-VY-qq8"/>
+                            <constraint firstAttribute="trailing" secondItem="DE3-HT-jZn" secondAttribute="trailing" id="zUj-JF-AkN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="profileImageView" destination="DE3-HT-jZn" id="LsY-c1-FmG"/>
+                        <outlet property="tabBar" destination="dWv-nn-Ii4" id="PW4-Qo-Jdc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ie3-HG-C5g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Akd-Zx-H5u">
+                    <connections>
+                        <action selector="onTapNavBar:" destination="fKp-60-VZe" id="t2x-nH-8Pc"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="856.79999999999995" y="33.733133433283363"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="action_buttons" width="320" height="108"/>
+        <image name="nav_bar" width="320" height="65"/>
+        <image name="nav_bar2" width="320" height="65"/>
+        <image name="ryan" width="449" height="514"/>
+    </resources>
 </document>
